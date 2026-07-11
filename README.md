@@ -1,7 +1,7 @@
 # azure-active-directory-homelab
 Enterprise-style Active Directory lab built in Microsoft Azure featuring DNS, OU design, security groups, domain-joined endpoints, Group Policy, and account lockout troubleshooting.
 
-    Project Overview 
+# Project Overview 
 
 This project demonstrates the deployment and administration  of an enterprise-style Windows Active Directory environment hosted entirely in Microsoft Azure. The lab was designed to simulate many of the core responsibilities performed by IT support, Systems Administration, and Infrastructure teams in a production environment. 
 
@@ -12,7 +12,7 @@ To simulate real-world administration, I configured domain-wide account lockout 
 Throughout the project I validated each configuration using command-line tools, Active Directory administrative console, Group Policy reporting, and authentication testing to ensure every component functioned as expected.
 
 
-        Objectives 
+# Objectives 
 
 The primary goals of this project were to:
 
@@ -27,7 +27,7 @@ The primary goals of this project were to:
 * Implement a domain-wide account lockout policy
 * Demonstrate troubleshooting using PowerShell and Windows administrative tools
 
-        Technologies Used 
+# Technologies Used 
 
 Cloud
 * Microsoft Azure
@@ -57,7 +57,7 @@ Networking
 * IPv4
 * Private Virtual Networks
 
-        Skills Demonstrated 
+# Skills Demonstrated 
 * Active Directory administration
 * User and computer account management
 * Organizational Unit (OU) design
