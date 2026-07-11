@@ -1,7 +1,8 @@
 # azure-active-directory-homelab
 Enterprise-style Active Directory lab built in Microsoft Azure featuring DNS, OU design, security groups, domain-joined endpoints, Group Policy, and account lockout troubleshooting.
 
----------------------------------------- Project Overview --------------------------------------------
+    Project Overview 
+
 This project demonstrates the deployment and administration  of an enterprise-style Windows Active Directory environment hosted entirely in Microsoft Azure. The lab was designed to simulate many of the core responsibilities performed by IT support, Systems Administration, and Infrastructure teams in a production environment. 
 
 The environment consists of a WIndows Server 2022 Domain Controller and a Windows 11 client joined to the westonlab.local Active Directory domain. Within the domain, I created a multi-branch organizational structure, configured user and computer accounts, implemented centralized Group Policy Objects (GPOs), validated DNS functionality, and deployed endpoint security configurations. 
