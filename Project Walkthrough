@@ -1,1 +1,130 @@
+1. Azure Infrastructure
+
+Overview
+
+This project was deployed entirely within Microsoft Azure to simulate a small enterprise Active Directory environment. The lab consists of a dedicated Windows Server 2022 Domain Controller and a Windows 11 Enterprise client connected through a private Azure Virtual Network.
+
+Separate Network Security Groups (NSGs) were assigned to each virtual machine to manage inbound connectivity while allowing secure communication across the internal network. The Domain Controller hosts Active Directory Domain Services (AD DS) and DNS, while the Windows client functions as a domain-joined workstation used for authentication, policy testing, and endpoint administration.
+
+
+⸻
+
+2. Active Directory Deployment
+
+Overview
+
+Windows Server 2022 was promoted to the first Domain Controller for the westonlab.local Active Directory forest. During deployment, Active Directory Domain Services and DNS Server roles were installed to provide centralized authentication, directory services, and name resolution across the environment.
+
+The Windows 11 client was configured to use the Domain Controller as its primary DNS server before joining the domain. Proper DNS configuration allowed the client to discover the Domain Controller and successfully authenticate against Active Directory.
+
+
+
+⸻
+
+3. Organizational Unit Design
+
+Overview
+
+To simulate a multi-site organization, Organizational Units (OUs) were created for three office locations:
+
+* Des Moines
+* Las Vegas
+* New York
+
+Each branch contains separate Users and Workstations OUs, allowing Group Policy Objects to be targeted independently while maintaining a clean administrative structure.
+
+Additional OUs were created to organize security groups and administrative resources, closely mirroring how many enterprise environments separate identities, endpoints, and security objects.
+
+
+
+⸻
+
+4. User and Computer Administration
+
+Overview
+
+Multiple domain user accounts were created to simulate employees across different office locations. User objects were organized within their respective branch OUs while workstations were placed inside dedicated Workstations containers to simplify policy targeting.
+
+After joining the Windows client to the domain, the computer object was relocated into the appropriate Organizational Unit to allow workstation-specific Group Policies to apply.
+
+PowerShell commands were used to validate successful domain membership and confirm the workstation had joined the correct Active Directory domain.
+
+
+
+⸻
+
+5. DNS Configuration and Domain Validation
+
+Overview
+
+DNS was configured as the primary name resolution service for the environment. The Windows client uses the Domain Controller as its preferred DNS server, allowing Active Directory services to function correctly.
+
+PowerShell validation confirmed successful DNS resolution for both the Active Directory domain and the Domain Controller. These tests verified that authentication traffic was resolving internally rather than relying on public DNS services.
+
+
+⸻
+
+6. Group Policy Administration
+
+Overview
+
+Centralized management was implemented using Group Policy Objects (GPOs). Policies were linked at both the domain and Organizational Unit levels to demonstrate enterprise-style administration.
+
+Three primary Group Policies were created:
+
+Domain-Wide Account Lockout Policy
+
+Configured to lock user accounts after ten consecutive failed authentication attempts, helping mitigate password-guessing attacks.
+
+Des Moines Workstation Security Baseline
+
+Applied specifically to workstation computers within the Des Moines Workstations OU. This policy demonstrates endpoint administration using OU-targeted configuration.
+
+Des Moines Branch Configuration
+
+A branch-specific Group Policy that displays a custom legal notice during user logon, identifying the workstation as a managed endpoint assigned to the Des Moines office.
+
+PowerShell was used to verify successful policy deployment and confirm each GPO applied correctly to the client workstation.
+
+
+⸻
+
+7. Endpoint Security Validation
+
+Overview
+
+Security configurations were validated using both PowerShell and Active Directory administrative tools. Group Policy reporting confirmed that all intended policies were successfully applied to the Windows client.
+
+The workstation displays a custom legal notice during authentication, demonstrating centralized endpoint management through Group Policy.
+
+Authentication testing confirmed that the account lockout policy correctly locks user accounts after repeated failed Remote Desktop logon attempts.
+
+
+⸻
+
+8. Account Lockout Demonstration
+
+Overview
+
+To validate the domain security policy, repeated failed Remote Desktop authentication attempts were performed using a standard domain user account.
+
+After the configured threshold of ten failed logon attempts was exceeded, Active Directory automatically locked the account. Administrative tools confirmed the lockout status, and the account was successfully restored by unlocking it through Active Directory Users and Computers.
+
+This validation demonstrates centralized identity management and enforcement of domain-wide authentication policies.
+
+
+⸻
+
+9. Project Validation
+
+PowerShell was used throughout the project to validate the environment beyond the graphical management tools. Administrative commands confirmed domain membership, DNS resolution, Group Policy application, and Active Directory security policy configuration.
+
+Validation included:
+
+* Domain membership verification
+* DNS name resolution
+* Group Policy reporting
+* Account lockout policy confirmation
+* Organizational Unit placement
+* Successful client authentication
 
