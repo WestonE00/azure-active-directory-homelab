@@ -12,7 +12,8 @@ To simulate real-world administration, I configured domain-wide account lockout 
 Throughout the project I validated each configuration using command-line tools, Active Directory administrative console, Group Policy reporting, and authentication testing to ensure every component functioned as expected.
 
 
-------------------------------------------- Objectives -----------------------------------------------
+        Objectives 
+
 The primary goals of this project were to:
 
 * Deploy an enterprise Active Directory Domain Services (AD DS) environment in Microsoft Azure
@@ -26,7 +27,8 @@ The primary goals of this project were to:
 * Implement a domain-wide account lockout policy
 * Demonstrate troubleshooting using PowerShell and Windows administrative tools
 
---------------------------------------- Technologies Used --------------------------------------------
+        Technologies Used 
+
 Cloud
 * Microsoft Azure
 * Azure Virtual Machines
@@ -55,7 +57,7 @@ Networking
 * IPv4
 * Private Virtual Networks
 
--------------------------------------- Skills Demonstrated -------------------------------------------
+        Skills Demonstrated 
 * Active Directory administration
 * User and computer account management
 * Organizational Unit (OU) design
